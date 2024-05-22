@@ -1,0 +1,192 @@
+% CVPR 2022 Paper Template
+% based on the CVPR template provided by Ming-Ming Cheng (https://github.com/MCG-NKU/CVPR_Template)
+% modified and extended by Stefan Roth (stefan.roth@NOSPAMtu-darmstadt.de)
+
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+%%%%%%%%% PAPER TYPE  - PLEASE UPDATE FOR FINAL VERSION
+% \usepackage[review]{cvpr}      % To produce the REVIEW version
+\usepackage{cvpr}              % To produce the CAMERA-READY version
+%\usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
+
+% Include other packages here, before hyperref.
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage[shortlabels]{enumitem}
+
+
+% It is strongly recommended to use hyperref, especially for the review version.
+% hyperref with option pagebackref eases the reviewers' job.
+% Please disable hyperref *only* if you encounter grave issues, e.g. with the
+% file validation for the camera-ready version.
+%
+% If you comment hyperref and then uncomment it, you should delete
+% ReviewTempalte.aux before re-running LaTeX.
+% (Or just hit 'q' on the first LaTeX run, let it finish, and you
+%  should be clear).
+\usepackage[pagebackref,breaklinks,colorlinks]{hyperref}
+
+
+% Support for easy cross-referencing
+\usepackage[capitalize]{cleveref}
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Tab.}{Tabs.}
+
+
+%%%%%%%%% PAPER ID  - PLEASE UPDATE
+\def\cvprPaperID{*****} % *** Enter the CVPR Paper ID here
+\def\confName{CVPR}
+\def\confYear{2022}
+
+
+\begin{document}
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+\title{NTIRE 2022 Efficient SR Challenge Factsheet\\-title of the contribution-}
+
+\author{First Author\\
+Institution1\\
+Institution1 address\\
+{\tt\small firstauthor@i1.org}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+\and
+Second Author\\
+Institution2\\
+First line of institution2 address\\
+{\tt\small secondauthor@i2.org}
+}
+\maketitle
+
+\section{Introduction}
+
+This factsheet template is meant to structure the description of the contributions made by each participating team in the NTIRE 2022 challenge on efficient image super-resolution. 
+
+Ideally, all the aspects enumerated below should be addressed.
+The provided information, the codes/executables and the achieved performance on the testing data are used to decide the awardees of the NTIRE 2022 challenge. 
+
+Reproducibility is a must and needs to be checked for the final test results in order to qualify for the NTIRE awards. 
+
+The main winners will be decided based on overall performance and a number of awards will go to novel, interesting solutions and to solutions that stand up as the best in a particular subcategory the judging committee will decided. Please check the competition webpage and forums for more details.
+
+The winners, the awardees and the top ranking teams will be invited to co-author the NTIRE 2022 challenge report and to submit papers with their solutions to the NTIRE 2022 workshop. Detailed descriptions are much appreciated.
+
+The factsheet, \href{https://github.com/ofsoundof/IMDN}{source codes/executables}, trained models should be sent to \textbf{all of the NTIRE 2022 challenge organizers (Yawei Li, Kai Zhang, and Radu Timofte)} by email.
+
+\section{Email final submission guide}
+
+\noindent To: {yawei.li@vision.ee.ethz.ch} \\ {kai.zhang@vision.ee.ethz.ch} \\ {radu.timofte@vision.ee.ethz.ch}\\
+\noindent cc: your\_team\_members\\
+Title: NTIRE 2022 Efficient SR Challenge - TEAM\_NAME\\
+
+Body contents should include: 
+
+\begin{enumerate}[a)]
+\item team name 
+
+\item team leader's name and email address 
+
+\item rest of the team members 
+
+\item team name and user names on NTIRE 2022 CodaLab competitions 
+
+\item executable/source code attached or download links. 
+
+\item factsheet attached 
+\end{enumerate}
+
+
+
+\noindent Factsheet must be a compiled pdf file together with a zip with .tex factsheet source files. Please provide a detailed explanation.
+
+
+\section{Code Submission}
+
+The code and trained models should be organized according to the \href{https://github.com/ofsoundof/IMDN}{GitHub repository}. This code repository provides the basis to compare the various methods in the challenge. \textbf{Code scripts based on other repositories will not be accepted.} Specifically, you should follow the steps below.
+\begin{enumerate}
+    \item Git clone \href{https://github.com/ofsoundof/IMDN}{the repository.}
+    \item Put your model script under the \texttt{models} folder.
+    \item Put your pretrained model under the \texttt{model\_zoo} folder.
+    \item Modify \texttt{model\_path} in \texttt{test\_demo.py}. Modify the imported models.
+    \item \texttt{python test\_demo.py}
+\end{enumerate}
+When submitting the code, please remove the LR and SR images in \texttt{data} folder to save the bandwidth.
+
+\section{Factsheet Information}
+
+The factsheet should contain the following information. Most importantly, you should describe your method in detail. The training strategy (optimization method, learning rate schedule, and other parameters such as batch size, and patch size) and training data (information about the additional trainning data) should also be explained in detail.
+
+\subsection{Team details}
+
+\begin{itemize}
+\item Team name                                  
+\item Team leader name                           
+\item Team leader address, phone number, and email 
+\item Rest of the team members        
+\item Team website URL (if any)                   
+\item Affiliation
+\item Affiliation of the team and/or team members with NTIRE 2022 sponsors (check the workshop website)
+\item User names and entries on the NTIRE 2022 Codalab competitions (development/validation and testing phases)
+\item Best scoring entries of the team during development/validation phase
+\item Link to the codes/executables of the solution(s)
+\end{itemize}
+
+\subsection{Method details}
+
+You should describe your proposed solution in detail. This part is equivalent to the methodology part of a conference paper submission. The description should cover the following details.
+
+\begin{itemize}
+\item General method description (How is the network designed.)                                
+%\item Description of the particularities of the solutions deployed for each of the challenge competitions or tracks
+\item Representative image / diagram / pipeline of the method(s)  
+\item Training strategy
+\item Experimental results
+\item References                                               
+\end{itemize}
+
+Additionally, you can refer to the following items to detail your description.
+\begin{itemize}
+\item Total method complexity (number of parameters, FLOPs, GPU memory consumption, number of activations, runtime)
+\item Which pre-trained or external methods / models have been used (for any stage, if any) 
+\item Which additional data has been used in addition to the provided NTIRE training and validation data (at any stage, if any) 
+\item Training description
+\item Testing description
+\item Quantitative and qualitative advantages of the proposed solution
+\item Results of the comparison to other approaches (if any)
+\item Results on other benchmarks (if any)
+\item Novelty degree of the solution and if it has been previously published
+\item It is OK if the proposed solution is based on other works (papers, reports, Internet sources (links), etc). It is ethically wrong and a misconduct if you are not properly giving credits and hide this information.
+\end{itemize}
+
+% \section{Technical details}
+% \begin{itemize}
+% \item Language and implementation details (including platform, memory, parallelization requirements)
+% \item Human effort required for implementation, training and validation?
+% \item Training/testing time? Runtime at test per image (\textbf{including ensemble}).
+% \item Comment the robustness and generality of the proposed solution(s)? 
+% % Is it easy to deploy it for other sets of downscaling operators? 
+% \item Comment the efficiency of the proposed solution(s)?
+% \end{itemize}
+
+\section{Other details}
+\begin{itemize}
+\item Planned submission of a solution(s) description paper at NTIRE 2022 workshop.
+\item General comments and impressions of the NTIRE 2022 challenge. 
+\item What do you expect from a new challenge in image restoration, enhancement and manipulation?
+\item Other comments: encountered difficulties, fairness of the challenge, proposed subcategories, proposed evaluation method(s), etc.
+\end{itemize}
+
+%%%%%%%%% REFERENCES
+{\small
+\bibliographystyle{ieee_fullname}
+\bibliography{egbib}
+}
+
+\end{document}
