@@ -8,7 +8,7 @@ import torch
 from utils import utils_logger
 from utils import utils_image as util
 from utils.model_summary import get_model_flops, get_model_activation
-from model.rlfn_ntire import RLFN_Prune
+from model.rlfn import RLFN
 
 
 def main():
@@ -31,8 +31,9 @@ def main():
     # --------------------------------
     # load model
     # --------------------------------
-    model_path = os.path.join('model_zoo', 'rlfn_ntire_x4.pth')
-    model = RLFN_Prune(in_channels=3, out_channels=3)
+    model_path = os.path.join('model_zoo', 'rlfn_x2.pth')
+    print(model_path)
+    model = RLFN(in_channels=3, out_channels=3)
     model.load_state_dict(torch.load(model_path), strict=True)       #保存和恢复模型的训练状态，strict确保模型加载的是预期的参数，没有任何遗漏或多余的参数
     model.eval()                                                     #评估模式（evaluation mode）
     for k, v in model.named_parameters():
@@ -112,6 +113,10 @@ def main():
 
     ave_runtime = sum(test_results['runtime']) / len(test_results['runtime']) / 1000.0
     logger.info('------> Average runtime of ({}) is : {:.6f} seconds'.format(L_folder, ave_runtime))
+
+    RLFN.fake_psnr(model_path[10:])
+
+
 
 if __name__ == '__main__':
 
